@@ -6,6 +6,11 @@ abstract class Transaksi {
         this.ket = ket;
         this.jml = jml;
     }
+
+    public Transaksi() {
+
+    }
+
     public String getKet(){
         return ket;
     }
@@ -27,6 +32,11 @@ class Pemasukan extends Transaksi{
     public Pemasukan (String ket, double jml){
         super(ket,jml);
     }
+
+    public Pemasukan() {
+        super();
+    }
+
     @Override
     public String getJenisTransaksi() {
         return "Pemasukan";

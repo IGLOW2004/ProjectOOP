@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class KeuanganPribadi {
-    private List<Transaksi> transaksiList;
+    private static ArrayList<Transaksi> transaksiList;
     public KeuanganPribadi(){
         transaksiList = new ArrayList<>();
     }
@@ -115,7 +115,7 @@ class KeuanganPribadi {
             System.out.println("indeks transaksi tidak sesuai");
         }
     }
-    public List<Transaksi> getTransaksiList() {
+    public List<Transaksi> getTransaksiList()   {
         return transaksiList;
     }
 }
