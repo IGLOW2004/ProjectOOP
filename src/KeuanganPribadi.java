@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class KeuanganPribadi {
+class KeuanganPribadi implements CRUD {
     private static ArrayList<Transaksi> transaksiList;
     public KeuanganPribadi(){
         transaksiList = new ArrayList<>();
@@ -90,6 +90,19 @@ class KeuanganPribadi {
             return 0;
         }
     }
+
+    @Override
+    public void  updateTransaksi(int index, String newKet, double newJml) {
+        if (index >= 0 && index < transaksiList.size()){
+            Transaksi transaksi = transaksiList.get(index);
+            transaksi.setKet(newKet);
+            transaksi.setJml(newJml);
+            System.out.println("Transaksi Berhasil di Update");
+        } else {
+            System.out.println("index transaksi tidak valid");
+        }
+    }
+
     public double hitungSaldo(){
         double saldoMasuk = 0;
         double saldoKeluar = 0;

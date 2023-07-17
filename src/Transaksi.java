@@ -2,6 +2,7 @@ abstract class Transaksi {
     private String ket;
     private double jml;
 
+
     public Transaksi (String ket, double jml){
         this.ket = ket;
         this.jml = jml;
@@ -32,11 +33,9 @@ class Pemasukan extends Transaksi{
     public Pemasukan (String ket, double jml){
         super(ket,jml);
     }
-
     public Pemasukan() {
         super();
     }
-
     @Override
     public String getJenisTransaksi() {
         return "Pemasukan";
