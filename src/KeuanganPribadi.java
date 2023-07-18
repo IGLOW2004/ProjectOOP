@@ -120,6 +120,18 @@ class KeuanganPribadi implements CRUD {
         System.out.println("=================================");
         return saldoMasuk-saldoKeluar;
     }
+    public double hitungsaldopengluaran(){
+        double saldoMasuk = 0;
+        double saldoKeluar = 0;
+        for(Transaksi transaksi : transaksiList){
+            if(transaksi instanceof Pemasukan){
+                saldoMasuk += transaksi.getJml();
+            } else if (transaksi instanceof  Pengluaran) {
+                saldoKeluar += transaksi.getJml();
+            }
+        }
+        return saldoMasuk-saldoKeluar;
+    }
     public void hapusTransaksi(int index){
         if (index >= 0 && index < transaksiList.size()){
             transaksiList.remove(index);

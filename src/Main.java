@@ -89,8 +89,17 @@ public class Main {
         System.out.print("keterangan Pengluaran : ");
         scanner.nextLine();
         String ketKeluar = scanner.nextLine();
-        System.out.print("Jumlah Pengluaran : Rp.");
-        double jmlKeluar = getValidateAmount(scanner);
+        double jmlKeluar = 0;
+        boolean validInput = false;
+        while (!validInput) {
+            System.out.print("Jumlah Pengluaran : Rp.");
+            jmlKeluar = getValidateAmount(scanner);
+            if(jmlKeluar > privateMoney.hitungsaldopengluaran()){
+                System.out.println("Jumlah pengeluaran anda melebihi Saldo");
+            } else {
+                validInput = true;
+            }
+        }
         privateMoney.tambahTransaksi(ketKeluar, jmlKeluar, false);
     }
     public static void update(){
