@@ -94,8 +94,8 @@ public class Main {
         while (!validInput) {
             System.out.print("Jumlah Pengluaran : Rp.");
             jmlKeluar = getValidateAmount(scanner);
-            if(jmlKeluar > privateMoney.hitungsaldopengluaran()){
-                System.out.println("Jumlah pengeluaran anda melebihi Saldo");
+            if(jmlKeluar > privateMoney.hitungSaldo()){
+                System.out.println("Jumlah pengeluaran anda melebihi Saldo! input dibawah jumlah saldo");
             } else {
                 validInput = true;
             }
@@ -172,7 +172,7 @@ public class Main {
         }
     }
     public static void jmlSaldo(){
-        double saldo = privateMoney.hitungSaldo();
+        double saldo = privateMoney.hitungSaldo(true);
         System.out.println("Saldo Anda : Rp."+saldo);
         System.out.println("=================================");
     }

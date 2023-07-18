@@ -103,24 +103,26 @@ class KeuanganPribadi implements CRUD {
         }
     }
 
-    public double hitungSaldo(){
-        double saldoMasuk = 0;
-        double saldoKeluar = 0;
-        for(Transaksi transaksi : transaksiList){
-            if(transaksi instanceof Pemasukan){
-                saldoMasuk += transaksi.getJml();
-            } else if (transaksi instanceof  Pengluaran) {
-                saldoKeluar += transaksi.getJml();
+    public double hitungSaldo(boolean showdetail){
+        if(showdetail) {
+            double saldoMasuk = 0;
+            double saldoKeluar = 0;
+            for (Transaksi transaksi : transaksiList) {
+                if (transaksi instanceof Pemasukan) {
+                    saldoMasuk += transaksi.getJml();
+                } else if (transaksi instanceof Pengluaran) {
+                    saldoKeluar += transaksi.getJml();
+                }
             }
+            System.out.println("Total Pemasukan : Rp." + saldoMasuk);
+            System.out.println("Total Pengeluaran : Rp." + saldoKeluar);
+            System.out.println("Rata-Rata Pemasukan : Rp." + RataPemasukan());
+            System.out.println("Rata-Rata Pengeluaran : Rp." + RataPengeluaran());
+            System.out.println("=================================");
         }
-        System.out.println("Total Pemasukan : Rp."+saldoMasuk);
-        System.out.println("Total Pengeluaran : Rp."+saldoKeluar);
-        System.out.println("Rata-Rata Pemasukan : Rp."+RataPemasukan());
-        System.out.println("Rata-Rata Pengeluaran : Rp."+RataPengeluaran());
-        System.out.println("=================================");
-        return saldoMasuk-saldoKeluar;
+        return hitungSaldo();
     }
-    public double hitungsaldopengluaran(){
+    public double hitungSaldo(){
         double saldoMasuk = 0;
         double saldoKeluar = 0;
         for(Transaksi transaksi : transaksiList){
